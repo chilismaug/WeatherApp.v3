@@ -9,7 +9,7 @@ import requests_toolbelt.adapters.appengine
 requests_toolbelt.adapters.appengine.monkeypatch()
 
 import math
-API_KEY = '40d0c5223044f01a0f0142846dc203d3'
+API_KEY = 'Z1----------------------7X'
 API_URL = ('http://api.openweathermap.org/data/2.5/weather?q={}&mode=json&units=metric&appid={}')
 def query_api(city):
     try:
