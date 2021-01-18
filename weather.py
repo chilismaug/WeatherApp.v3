@@ -12,7 +12,7 @@ from urllib.request import urlopen
 requests_toolbelt.adapters.appengine.monkeypatch()
 
 import math
-API_KEY = '40d0c5223044f01a0f0142846dc203d3'
+API_KEY = 'Z1----------------------7X'
 API_URL = ('http://api.openweathermap.org/data/2.5/weather?q={}&mode=json&units=metric&appid={}')
 # When running local let us use our one-trick weather API stubserver
 STUB_URL= ('http://localhost:8001')
