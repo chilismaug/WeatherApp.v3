@@ -1,0 +1,5 @@
+python -m venv flask-weatherapp3
+source flask-weatherapp3/Scripts/activate
+pip3 install flask && which flask
+
+ ~/AppData/Local/Google/"Cloud SDK"/google-cloud-sdk/bin/dev_appserver.py app.yaml

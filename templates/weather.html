@@ -6,34 +6,40 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body
-	<div class="center-on-page-top">
-	  <ul>
-		<li>
-			<h1>Weather in a City </h1>
-			{% if phase == 'answer' %}
-				<div id="fauxbtndiv" class="center-on-page-top">
-					<a href="/" class="fauxbtn">Another City</a>
-				</div>
-			{% else %}
-				<form class="form-block" method="POST" action="{{ url_for('result') }}">
-					<div class="select">
-						<select name="comp_select" class="selectpicker form-control">
-						{% for o in data %}
-							<option value="{{ o.name }}">{{ o.name }}</option>
-						{% endfor %}
-						</select>	
-					</div>	
-					<div class="btn">					
-						<button class="btn" type="submit">Go</button>
-					</div>		
-				</form>					
-			{% endif %}				
-		</li>
-		<li>
-			{% block body %}
-			{% endblock %}
-		</li>
-	  </ul>
-	</div>
+    <div class="center-on-page-top">
+      <ul>
+        <li>
+            <h1>Weather in a City </h1>
+            {% if phase == 'answer' %}
+                <div id="fauxbtndiv" class="center-on-page-top">
+                    <a href="/" class="fauxbtn">Another City</a>
+                </div>
+            {% else %}
+                <form class="form-block" method="POST" action="{{ url_for('result') }}">
+                    <div class="select">
+                        <select name="comp_select" class="selectpicker form-control">
+                        {% for o in data %}
+                            <option value="{{ o.name }}">{{ o.name }}</option>
+                        {% endfor %}
+                        </select>   
+                    </div>  
+                    <div class="btn">                   
+                        <button class="btn" type="submit">Go</button>
+                    </div>      
+                </form>                 
+            {% endif %}             
+        </li>
+        <li>
+        {% if phase == 'answer' %}
+            {% for d in data %}
+            {% set my_string = "static/img/" + d['weather'][0]['icon']+ ".svg" %}
+              <h1><img src="{{ my_string }}" class="svg" fill="white" height="100" vertical-align="middle" width="100"></h1>
+              <h1>{{ d['name'] }}, {{ d['sys']['country'] }}</h1>
+              <h1>{{ d['main']['temp']|round|int}} °C</h1>
+            {% endfor %}
+        {% endif %}
+        </li>
+      </ul>
+    </div>
   </body>
 </html>

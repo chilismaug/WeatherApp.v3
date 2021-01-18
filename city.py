@@ -16,7 +16,8 @@ def get_cities():
                {'name':'Reykjavik'},
                {'name':'Timbuktu'},
                {'name':'Toronto'},
-               {'name':'Vancouver'}]
+               {'name':'Vancouver'},
+               {'name':'Xanadu'}]
 
 #    jsonFile = os.path.join( "static", "data", filename)
 #    jsonFile = os.path.join(os.path.split(__file__)[0], 'data/cities.json')

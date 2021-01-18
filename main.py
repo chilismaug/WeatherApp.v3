@@ -2,12 +2,13 @@
 import json
 import os
 import logging
-from pprint import pprint as pp
 from flask import Flask, flash, redirect, render_template, request, url_for
+from pprint import pprint as pp
 from weather import query_api
 from city import get_cities
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -15,8 +16,7 @@ def index():
     return render_template(
         'weather.html',
         data=data,
-        phase='ask',
-        jsinfo=data)
+        phase='ask')
 
 
 @app.route("/result", methods=["GET", "POST"])
@@ -31,10 +31,10 @@ def result():
     if len(data) != 2:
         error = 'Bad Response from Weather API'
     return render_template(
-        'result.html',
+        'weather.html',
         data=data,
-        error=error,
-        phase='answer')
+        phase='answer',
+        error=error)
 
 
 @app.errorhandler(500)
