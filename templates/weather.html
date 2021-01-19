@@ -24,7 +24,7 @@
                         </select>   
                     </div>  
                     <div class="btn">                   
-                        <button class="btn" type="submit">Go</button>
+                        <button class="btn" id="result" type="submit">Go</button>
                     </div>      
                 </form>                 
             {% endif %}             
@@ -39,7 +39,29 @@
             {% endfor %}
         {% endif %}
         </li>
+        <li>
+        	<h1 id="temp"> here </h1>
+        </li>
       </ul>
     </div>
   </body>
+      <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('button').forEach(button => { 
+                button.onclick = () => {                    
+                // any button is clicked, post to the endpoint `${button.id}` with method 'POST'
+                    const request = new XMLHttpRequest();   
+                    request.open('GET', 'http://localhost:8001/');
+                    //replace the placeholder with the updated value
+                    request.onload = () => { 
+                        const response = request.responseText;
+                        var jsonResponse = JSON.parse(response);
+                        document.getElementById('temp').innerHTML = jsonResponse;
+                    }; 
+ 
+                    request.send();
+                };
+            });
+        });
+    </script>
 </html>
