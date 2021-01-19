@@ -1,11 +1,12 @@
 Flask==1.1.2
+flask-restful>=0.1.0
 click==6.7
 google-cloud-storage==1.13.2
 gunicorn==19.7.1
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2>=2.9.6
 MarkupSafe==1.0
 pytz==2017.2
-requests >= 2.18.0
-requests_toolbelt >= 0.8
-Werkzeug==0.12.1
+requests>= 2.18.0
+requests_toolbelt>=0.8
+Werkzeug>=0.15.1
